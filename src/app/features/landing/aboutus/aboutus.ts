@@ -77,6 +77,7 @@ interface Slide {
 
 @Component({
   selector: 'app-aboutus',
+  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NgOptimizedImage, RouterModule, LucideAngularModule],
   template: `

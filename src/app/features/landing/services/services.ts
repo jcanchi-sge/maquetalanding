@@ -1,5 +1,7 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, ChangeDetectionStrategy, computed, inject, signal } from '@angular/core';
+import { ActivatedRoute, Router, RouterModule, NavigationEnd } from '@angular/router';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { filter, map, startWith } from 'rxjs/operators';
 import {
   LucideAngularModule,
   LucideIconData,
@@ -74,13 +76,15 @@ const ARROW: Record<string, string> = {
 
 @Component({
   selector: 'app-services',
+  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterModule, LucideAngularModule, Footer],
   template: `
-    <!-- ══════════════════════════════════════════════════════════
-         HERO — animated ambient blobs
-    ══════════════════════════════════════════════════════════ -->
-    <section class="pt-[10vh] relative min-h-[70vh] flex items-center overflow-hidden bg-zinc-950">
+    @if (!hasChildRoute()) {
+      <!-- ══════════════════════════════════════════════════════════
+           HERO — animated ambient blobs
+      ══════════════════════════════════════════════════════════ -->
+      <section class="pt-[10vh] relative min-h-[70vh] flex items-center overflow-hidden bg-zinc-950">
 
       <!-- Animated ambient blobs (preserve original effect) -->
       <div class="blob blob-1" aria-hidden="true"></div>
@@ -89,7 +93,7 @@ const ARROW: Record<string, string> = {
       <div class="blob blob-4" aria-hidden="true"></div>
 
       <!-- Video right half -->
-      <div class="absolute inset-y-0 right-0 w-full lg:w-1/2 pointer-events-none">
+      <div class="absolute inset-y-0 right-0 w-full lg:w-1/3 pointer-events-none">
         <video
           autoplay muted loop playsinline
           class="h-full w-full object-cover opacity-30 lg:opacity-50"
@@ -228,6 +232,7 @@ const ARROW: Record<string, string> = {
     </section>
 
     <app-footer></app-footer>
+    }
 
     <!-- ══════════════════════════════════════════════════════════
          ROUTER OUTLET (child routes)
@@ -302,6 +307,21 @@ const ARROW: Record<string, string> = {
   `,
 })
 export class Services {
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
+  
+  // Observable que emite cada vez que hay navegación y verifica si hay child routes
+  private readonly childrenSignal = toSignal(
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+      startWith(null),
+      map(() => this.route.children.length > 0)
+    ),
+    { initialValue: false }
+  );
+
+  // Detecta si hay una ruta child activa (detail component)
+  readonly hasChildRoute = computed(() => this.childrenSignal());
 
   // ── Icons exposed to template ─────────────────────────────────
   readonly ChevronRight = ChevronRight;

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
+  standalone: true,
   imports: [],
   template: `
     <footer class="relative text-white bg-center bg-gray-600 py-24" style=""

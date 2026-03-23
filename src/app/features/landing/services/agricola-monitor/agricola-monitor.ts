@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-agricola-monitor',
+  standalone: true,
   imports: [],
   template: `
     <p>

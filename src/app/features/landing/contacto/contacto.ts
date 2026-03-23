@@ -29,6 +29,7 @@ interface ContactInfo {
 
 @Component({
   selector: 'app-contacto',
+  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ReactiveFormsModule, LucideAngularModule],
   template: `
