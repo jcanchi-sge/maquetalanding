@@ -1,0 +1,180 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+
+
+.almarai{
+    font-family: 'Almarai', sans-serif !important;
+}
+.century{
+    font-family: 'Century Gothic', sans-serif;
+}
+.txtclaro, .text-white{
+    color: #eeeeee;
+    text-decoration: none;
+}
+.text-dark{
+    color: black;
+}
+.bordo{
+    color: #B40404;
+}
+.celeste{
+    color: #2E2EFE;
+}
+.claro{
+    color: #ffffff;
+}
+
+/* COLORES DE FONDO */
+.bg-grey-w{
+    background: #dedede;
+}
+.bg-bord{
+    background: #B40404;
+}
+.bg-green{
+    background: #21610B;
+}
+.bg-conoce{
+    background: #2E2EFE;
+}
+.bg-celeste{
+    background: #00FFFF;
+}
+.bg-inputcon{
+    background: #9b9b9b44;
+}
+.bg-grey{
+    background: #2b2b2b;
+}
+.bg-phantoche{
+    background: #D9D9D9;
+}
+.bg-green-w{
+    background: #39b400;
+}
+.bg-grey-b{
+    background: rgb(105, 105, 105);
+}
+
+.titlemain{
+    font-size: 5vh;
+}
+.parr-size{
+    font-size: 3vh;
+}
+.cursor{
+    cursor: pointer;
+}
+.registro h5{
+    color: #2d8d00;
+}
+::-webkit-scrollbar {
+  background-color: #818181;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #E53322;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ffffff;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+
+/* HEADER */
+
+.button-loginheader{
+    border: 2px solid #00FFFF;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+.menumobile{
+    font-size: 2rem;
+    width: 90vw;
+    gap: 1rem;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* FUNCTIONS DEFECT */
+
+.d-flex{
+    display: flex!important;
+}
+.flex-column{
+    flex-direction: column!important;
+}
+.justify-content-center{
+    justify-content: center!important;
+}
+.position-absolute{
+    position: absolute!important;
+}
+.text-center{
+    text-align: center!important;
+}
+.justify-content-between{
+    justify-content: space-between!important;
+}
+.align-items-center{
+    align-items: center!important;
+}
+
+
+.amplify-button--primary{
+    background: #B40404!important;
+}
+
+[data-amplify-authenticator] [data-amplify-router] {
+    background: rgba(255, 255, 255, 0.719) !important; /* Fondo con transparencia */
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/*TEMPORAL*/
+
+/* Animación suave para el scroll infinito de clientes */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.animate-scroll {
+    animation: scroll 30s linear infinite;
+}
+
+/* Utilidad para gradientes de texto */
+.text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* Lógica para posicionar los items en círculo sin JS complejo */
+.orbital-item {
+    /* Distancia responsiva:
+       135px en móvil (mitad de 270px aprox),
+       190px en tablet,
+       240px en desktop
+    */
+    --radius: 135px;
+}
+@media (min-width: 640px) { .orbital-item { --radius: 190px; } }
+@media (min-width: 1024px) { .orbital-item { --radius: 240px; } }
+
+.orbital-item {
+    /* Magia CSS: Rota el contenedor, traslada el item hacia afuera, y "des-rota" el item para que quede derecho */
+    transform: rotate(var(--angle)) translate(var(--radius)) rotate(calc(-1 * var(--angle)));
+}
+
+/* Animación para contrarrestar el giro del anillo principal
+   y que los iconos siempre miren hacia arriba aunque orbiten */
+@keyframes counter-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
