@@ -271,7 +271,7 @@ import {
                 </button>
                 <div class="w-52 overflow-hidden rounded-xl border border-zinc-700 mt-1">
                   <img
-                    src="/assets/img/brochure preview.webp"
+                    src="/img/brochure preview.webp"
                     class="w-full object-cover"
                     alt="Vista previa del brochure"
                   />
@@ -289,7 +289,7 @@ import {
                 </div>
                 <div class="w-48 h-48 overflow-hidden rounded-xl border border-zinc-700">
                   <img
-                    src="/assets/img/qr-code.webp"
+                    src="/img/qr-code.webp"
                     alt="Código QR"
                     class="w-full h-full object-cover"
                   />

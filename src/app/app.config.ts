@@ -1,6 +1,16 @@
 import { ApplicationConfig, provideZoneChangeDetection, importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { LucideAngularModule, ArrowRight, LogIn, Eye, Cpu, TrendingUp, Map, Layers, MapPin, BarChart2, Plane, CheckCircle2, ChevronDown, Globe, Satellite, TreePine, Factory, Mountain, ScanLine, Pickaxe, Plus } from 'lucide-angular';
+import {
+  LucideAngularModule,
+  ArrowRight, LogIn, Eye, Cpu, TrendingUp, Map, Layers, MapPin, BarChart2,
+  Plane, CheckCircle2, ChevronDown, Globe, Satellite, TreePine, Factory,
+  Mountain, ScanLine, Pickaxe, Plus, Building2, Route, Download, Mail,
+  Scan, Ruler, Thermometer, Droplets, Box, Zap, Shield, Network, TrendingDown, 
+  Leaf, Timer, FlameKindling, AlertTriangle, Wrench, FileText, Database, 
+  CircleCheck, ChevronDownIcon, MailIcon, DownloadIcon, ScanIcon,
+  ThermometerIcon, ScanLineIcon, CpuIcon, MapIcon, FileTextIcon, MapPinIcon,
+  GlobeIcon,
+} from 'lucide-angular';
 
 import { routes } from './app.routes';
 
@@ -30,6 +40,37 @@ export const appConfig: ApplicationConfig = {
         ScanLine,
         Pickaxe,
         Plus,
+        Building2,
+        Route,
+        Download,
+        Mail,
+        Scan,
+        Ruler,
+        Thermometer,
+        Droplets,
+        Box,
+        Zap,
+        Shield,
+        Network,
+        TrendingDown,
+        Leaf,
+        Timer,
+        ThermometerIcon,
+        ScanLineIcon,
+        CpuIcon,
+        MapIcon,
+        FileTextIcon,
+        MapPinIcon,
+        Database,
+        GlobeIcon,
+        CircleCheck,
+        ChevronDownIcon,
+        MailIcon,
+        DownloadIcon,
+        ScanIcon,
+        FlameKindling,
+        AlertTriangle,
+        Wrench
       }),
     ),
   ],
